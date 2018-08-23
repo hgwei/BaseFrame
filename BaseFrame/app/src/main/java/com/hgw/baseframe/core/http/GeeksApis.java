@@ -1,8 +1,8 @@
 package com.hgw.baseframe.core.http;
 
-import com.hgw.baseframe.core.bean.BannerData;
-import com.hgw.baseframe.core.bean.BaseResponse;
-import com.hgw.baseframe.core.bean.LoginData;
+import com.hgw.baseframe.bean.BannerData;
+import com.hgw.baseframe.bean.BaseResponse;
+import com.hgw.baseframe.bean.LoginData;
 
 import java.util.List;
 

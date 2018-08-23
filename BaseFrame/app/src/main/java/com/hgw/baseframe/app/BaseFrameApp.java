@@ -1,13 +1,8 @@
 package com.hgw.baseframe.app;
 
-import android.Manifest;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
-
-import com.hgw.baseframe.util.DirUtil;
-import com.hgw.baseframe.util.LogHelper;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**

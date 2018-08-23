@@ -1,20 +1,17 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.hgw.baseframe"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //Enabling multidex support.
         multiDexEnabled true
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -22,33 +19,32 @@ android {
         }
     }
 
-    /* 强制使用java8，支持lambda表达式*/
-    compileOptions{
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url 'https://jitpack.io' }
     }
 
-}
-
-repositories {
-    mavenCentral()
-    jcenter()
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
 
     /**
      * base 部分
      */
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:25.0.1'
-    compile 'com.android.support:support-v4:25.0.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //design
+    implementation 'com.android.support:design:28.0.0-alpha3'
+    implementation 'com.android.support:support-v4:28.0.0-alpha3'
 
     /**
      * ui 部分
@@ -58,15 +54,15 @@ dependencies {
      * net 部分
      */
     //retrofit相关
-    compile "com.squareup.retrofit2:retrofit:2.4.0"
-    compile "com.squareup.retrofit2:converter-gson:2.4.0"
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     //okhttp日志拦截（注意：多个okhttp的引用，后面带的版本要统一，否则会报找不到类错误）
-    compile 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     //okhttp设置cookie
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
     //glide
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     /**
      * dao 部分
@@ -75,9 +71,9 @@ dependencies {
     /**
      * rx 部分
      */
-//    compile 'io.reactivex.rxjava2:rxjava:2.x.x'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    //compile 'io.reactivex.rxjava2:rxjava:2.x.x'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
 
     /**
      * di 部分
@@ -87,11 +83,11 @@ dependencies {
      * multidex 部分
      */
     //解决方法数超过64k
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:multidex:1.0.1'
 
     /**
      * other 部分
      */
     //腾讯bugly
-    compile 'com.tencent.bugly:crashreport:latest.release'
+    implementation 'com.tencent.bugly:crashreport:latest.release'
 }

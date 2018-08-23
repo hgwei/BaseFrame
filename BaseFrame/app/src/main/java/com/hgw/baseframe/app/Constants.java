@@ -18,11 +18,4 @@ public class Constants {
     //Bugly
     public static final String BuglyAPPID = "c10da7940d";
 
-    /**
-     * SharePreference key 部分
-     */
-    public static final String ACCOUNT = "account";
-    public static final String PASSWORD = "password";
-    public static final String LOGIN_STATUS = "login_status";
-    public static final String IS_FIRST_START = "is_first_start";
 }

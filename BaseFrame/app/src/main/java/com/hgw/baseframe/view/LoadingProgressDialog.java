@@ -1,4 +1,4 @@
-package com.hgw.baseframe.widget;
+package com.hgw.baseframe.view;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -54,6 +54,9 @@ public class LoadingProgressDialog extends Dialog {
 
         //提示文本，默认为（加载中...）
         TextView mMessage=(TextView) dialog.findViewById(R.id.textView);
+        if(TextUtils.isEmpty(message)){
+            message="加载中...";
+        }
         mMessage.setText(message);
 
         dialog.show();

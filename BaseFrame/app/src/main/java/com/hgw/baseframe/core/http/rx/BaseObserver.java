@@ -3,9 +3,9 @@ package com.hgw.baseframe.core.http.rx;
 import android.content.Context;
 import android.widget.Toast;
 import com.hgw.baseframe.app.BaseFrameApp;
-import com.hgw.baseframe.core.bean.BaseResponse;
+import com.hgw.baseframe.bean.BaseResponse;
 import com.hgw.baseframe.util.LogHelper;
-import com.hgw.baseframe.widget.LoadingProgressDialog;
+import com.hgw.baseframe.view.LoadingProgressDialog;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 

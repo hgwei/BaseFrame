@@ -29,4 +29,11 @@
         android:icon="@mipmap/icon_project_not_selected"
         android:title="项目"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/tab_project2"
+        android:enabled="true"
+        android:icon="@mipmap/icon_project_not_selected"
+        android:title="项目"
+        app:showAsAction="ifRoom" />
 </menu>

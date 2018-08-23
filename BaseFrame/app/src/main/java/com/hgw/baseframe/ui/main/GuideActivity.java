@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.main.activity;
+package com.hgw.baseframe.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,29 +7,21 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.hgw.baseframe.R;
-import com.hgw.baseframe.base.ui.BaseActivity;
-import com.hgw.baseframe.ui.main.adapter.GuideAdapter;
-import com.hgw.baseframe.ui.main.contract.GuideContract;
-import com.hgw.baseframe.ui.main.presenter.GuidePresenter;
-
+import com.hgw.baseframe.base.BaseActivity;
+import com.hgw.baseframe.adapter.GuideAdapter;
 import java.util.ArrayList;
 
 /**
  * 描述：引导介绍页
  * @author hgw
  */
-public class GuideActivity extends BaseActivity<GuidePresenter> implements GuideContract.View  {
+public class GuideActivity extends BaseActivity {
     /**ViewPager*/
     private ViewPager viewPager;
     /**iewPager适配器*/
     private GuideAdapter vpAdapter;
     /**ArrayList来存放View*/
     private ArrayList<View> views;
-
-    @Override
-    protected void initPresenter() {
-        mPresenter=new GuidePresenter();
-    }
 
     /**
      * 入口
@@ -87,6 +79,7 @@ public class GuideActivity extends BaseActivity<GuidePresenter> implements Guide
         viewPager.setAdapter(vpAdapter);
     }
 
+    /**挑战首页*/
     public void toMain() {
         MainActivity.toActivity(this);
         finish();

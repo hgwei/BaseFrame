@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.main.activity;
+package com.hgw.baseframe.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.hgw.baseframe.R;
-import com.hgw.baseframe.base.ui.BaseActivity;
-import com.hgw.baseframe.core.bean.BannerData;
-import com.hgw.baseframe.core.bean.BaseResponse;
-import com.hgw.baseframe.core.bean.LoginData;
+import com.hgw.baseframe.base.BaseActivity;
+import com.hgw.baseframe.bean.BannerData;
+import com.hgw.baseframe.bean.BaseResponse;
+import com.hgw.baseframe.bean.LoginData;
 import com.hgw.baseframe.core.http.HttpHelper;
 import com.hgw.baseframe.core.http.rx.BaseObserver;
 import com.hgw.baseframe.core.http.rx.RxSchedulers;
-import com.hgw.baseframe.ui.main.presenter.SplashPresenter;
 import com.hgw.baseframe.util.LogHelper;
 import java.util.List;
 import io.reactivex.Observer;
@@ -25,7 +24,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public class RetrofitActivity extends BaseActivity<SplashPresenter> {
+public class RetrofitActivity extends BaseActivity {
 
     public interface BannerService {
         @GET("/banner/json") //这里的{id} 表示是一个变量
@@ -45,11 +44,6 @@ public class RetrofitActivity extends BaseActivity<SplashPresenter> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
-
-    }
-
-    @Override
-    protected void initPresenter() {
 
     }
 

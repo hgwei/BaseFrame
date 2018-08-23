@@ -1,4 +1,4 @@
-package com.hgw.baseframe.core.bean;
+package com.hgw.baseframe.bean;
 
 /**
  * 描述：http请求返回的最外层对象

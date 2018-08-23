@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.main.adapter;
+package com.hgw.baseframe.adapter;
 
 import java.util.ArrayList;
 import android.support.v4.view.PagerAdapter;

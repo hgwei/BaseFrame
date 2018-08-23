@@ -14,7 +14,7 @@
         <meta-data android:name="android.max_aspect"
             android:value="2.1"/>
 
-        <activity android:name=".ui.main.activity.SplashActivity">
+        <activity android:name=".ui.main.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.hgw.baseframe.ui.main.activity.MainActivity"/>
-        <activity android:name="com.hgw.baseframe.ui.main.activity.RetrofitActivity"/>
-        <activity android:name="com.hgw.baseframe.ui.main.activity.GuideActivity"/>
+        <activity android:name="com.hgw.baseframe.ui.main.MainActivity"/>
+        <activity android:name="com.hgw.baseframe.ui.main.RetrofitActivity"/>
+        <activity android:name="com.hgw.baseframe.ui.main.GuideActivity"/>
     </application>
 
     <!-- *********************应用权限部分********************* -->

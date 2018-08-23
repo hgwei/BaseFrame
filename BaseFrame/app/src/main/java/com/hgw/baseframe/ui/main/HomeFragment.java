@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.main.activity;
+package com.hgw.baseframe.ui.main;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.hgw.baseframe.R;
-import com.hgw.baseframe.base.ui.BaseFragment;
+import com.hgw.baseframe.base.BaseFragment;
 import com.hgw.baseframe.util.LogHelper;
 
 /**
- * 描述：最新闻
+ * 描述：首页
  * @author hgw
  * */
 public final class HomeFragment extends BaseFragment implements View.OnClickListener{
@@ -60,8 +60,4 @@ public final class HomeFragment extends BaseFragment implements View.OnClickList
 		}
 	}
 
-	@Override
-	protected void initPresenter() {
-
-	}
 }

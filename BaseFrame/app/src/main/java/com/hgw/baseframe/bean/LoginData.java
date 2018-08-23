@@ -1,4 +1,4 @@
-package com.hgw.baseframe.core.bean;
+package com.hgw.baseframe.bean;
 
 import java.io.Serializable;
 

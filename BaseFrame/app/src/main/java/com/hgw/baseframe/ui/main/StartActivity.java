@@ -28,7 +28,7 @@ public class StartActivity extends BaseActivity {
         //设置窗口全屏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        final View view = View.inflate(this, R.layout.activity_splash, null);
+        final View view = View.inflate(this, R.layout.activity_start, null);
         setContentView(view);
 
         //首次安装APP打开，先获取权限

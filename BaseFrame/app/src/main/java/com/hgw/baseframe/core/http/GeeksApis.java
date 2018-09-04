@@ -21,16 +21,6 @@ import retrofit2.http.POST;
 
 public interface GeeksApis {
 
-    String HOST = "http://www.wanandroid.com/";
-
-//    /**
-//     * 注册
-//     * http://www.wanandroid.com/banner/json
-//     */
-//    @GET("/banner/json") //这里的{id} 表示是一个变量
-//    Call<ResponseBody> getBanner();
-
-
     /**
      * 获取广告列表
      * http://www.wanandroid.com/banner/json

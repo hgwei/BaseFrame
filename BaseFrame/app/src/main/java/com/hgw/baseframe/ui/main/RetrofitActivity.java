@@ -26,11 +26,6 @@ import retrofit2.http.GET;
 
 public class RetrofitActivity extends BaseActivity {
 
-    public interface BannerService {
-        @GET("/banner/json") //这里的{id} 表示是一个变量
-        Call<ResponseBody> getBanner();
-    }
-
     /**
      * 入口
      * @param context
@@ -47,37 +42,27 @@ public class RetrofitActivity extends BaseActivity {
 
     }
 
+    /**Get请求示例*/
     public void getBannerClick(View view){
         HttpHelper.getInstance().httpService().getBannerData()
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BaseResponse<List<BannerData>>>() {
+                .compose(RxSchedulers.compose())
+                .subscribe(new BaseObserver<List<BannerData>>(this){
                     @Override
-                    public void onError(Throwable e) {
-                        LogHelper.showLog("onError");
-                        hideProgressDialog();
-                    }
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-                        showProgressDialog("加载中...");
-                        LogHelper.showLog("onSubscribe");
-                    }
-                    @Override
-                    public void onComplete() {
-                        LogHelper.showLog("onCompleted");
-                        hideProgressDialog();
-                    }
-                    @Override
-                    public void onNext(BaseResponse<List<BannerData>> result) {
-                        LogHelper.showLog("广告请求返回="+result.getData().get(0).getTitle());
-                        LogHelper.showLog("广告请求返回="+result.getData().get(1).getTitle());
-                        LogHelper.showLog("广告请求返回="+result.toString());
-                        showShortToast("广告请求成功");
+                    protected void onHandleSuccess(BaseResponse<List<BannerData>> response) {
+                        if(response.getErrorCode()==0){
+                            LogHelper.showLog("广告请求返回="+response.getData().get(0).getTitle());
+                            LogHelper.showLog("广告请求返回="+response.getData().get(1).getTitle());
+                            LogHelper.showLog("广告请求返回="+response.toString());
+                            showShortToast("广告请求成功");
+                        }else{
+                            showShortToast(response.getErrorMsg());
+                        }
                     }
                 });
     }
 
+
+    /**POST请求示例*/
     public void postRegisterClick(View view){
         HttpHelper.getInstance().httpService().getRegisterData("1008623","123456","123456")
                 .compose(RxSchedulers.compose())
@@ -95,6 +80,7 @@ public class RetrofitActivity extends BaseActivity {
                     }
         });
 
+        /*注释部分是不封装的使用方法*/
 //        HttpHelper.getInstance().httpService().getRegisterData("1008623","123456","123456")
 //                .subscribeOn(Schedulers.io())
 //                .unsubscribeOn(Schedulers.io())
@@ -129,23 +115,4 @@ public class RetrofitActivity extends BaseActivity {
 //                });
     }
 
-    private void getBanner() {
-//        GeeksApis service = AppHttpClient.retrofit().create(GeeksApis.class);
-//        Call<ResponseBody> call = service.getBanner();
-//        call.enqueue(new Callback<ResponseBody>() {
-//            @Override
-//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                try {
-//                    LogHelper.showLog("onResponse="+response.body().string());
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                t.printStackTrace();
-//            }
-//        });
-    }
 }

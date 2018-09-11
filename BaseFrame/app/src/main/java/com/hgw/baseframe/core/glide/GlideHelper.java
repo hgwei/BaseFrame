@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.hgw.baseframe.R;
 import java.io.File;
 
@@ -17,7 +18,6 @@ import java.io.File;
  * 描述：Glide
  * @author hgw
  */
-
 public class GlideHelper {
     private String TAG = "GlideHelper";
     private static GlideHelper mGlideHelper=null;
@@ -38,12 +38,14 @@ public class GlideHelper {
      */
     public void loadImage(Context context, String url, ImageView imageView) {
         if (context != null) {
-            Glide.with(context)
-                    .load(url)
+            RequestOptions options = new RequestOptions()
                     .centerCrop()
                     .placeholder(R.mipmap.aio_image_default)
                     .error(R.mipmap.aio_image_fail)
-                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(context)
+                    .load(url)
+                    .apply(options)
                     .into(imageView);
         } else {
             Log.i(TAG, "Picture loading failed,context is null");
@@ -60,12 +62,14 @@ public class GlideHelper {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadImage(Activity activity, String url, ImageView imageView) {
         if (!activity.isDestroyed()) {
-            Glide.with(activity)
-                    .load(url)
+            RequestOptions options = new RequestOptions()
                     .centerCrop()
                     .placeholder(R.mipmap.aio_image_default)
                     .error(R.mipmap.aio_image_fail)
-                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(activity)
+                    .load(url)
+                    .apply(options)
                     .into(imageView);
         } else {
             Log.i(TAG, "Picture loading failed,activity is Destroyed");
@@ -81,12 +85,14 @@ public class GlideHelper {
      */
     public void loadImage(Fragment fragment, String url, ImageView imageView) {
         if (fragment != null && fragment.getActivity() != null) {
-            Glide.with(fragment)
-                    .load(url)
+            RequestOptions options = new RequestOptions()
                     .centerCrop()
                     .placeholder(R.mipmap.aio_image_default)
                     .error(R.mipmap.aio_image_fail)
-                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(fragment)
+                    .load(url)
+                    .apply(options)
                     .into(imageView);
         } else {
             Log.i(TAG, "Picture loading failed,fragment is null");
@@ -102,12 +108,14 @@ public class GlideHelper {
      */
     public void loadImage(android.app.Fragment fragment, String url, ImageView imageView) {
         if (fragment != null && fragment.getActivity() != null) {
-            Glide.with(fragment)
-                    .load(url)
+            RequestOptions options = new RequestOptions()
                     .centerCrop()
                     .placeholder(R.mipmap.aio_image_default)
                     .error(R.mipmap.aio_image_fail)
-                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(fragment)
+                    .load(url)
+                    .apply(options)
                     .into(imageView);
         } else {
             Log.i(TAG, "Picture loading failed,android.app.Fragment is null");
@@ -117,13 +125,14 @@ public class GlideHelper {
     /** 加载本地图片 */
     public void loadLocalImage(Context context, String localPath, ImageView imageView) {
         if(context!=null){
-            Glide.with(context)                             //配置上下文
-                    .load(Uri.fromFile(new File(localPath)))      //设置图片路径
-                    .asBitmap()
-                    .centerCrop()                                //裁剪中间部分
-                    .placeholder(R.mipmap.aio_image_default)     //设置占位图片
-                    .error(R.mipmap.aio_image_fail)           //设置错误图片
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)//缓存全尺寸
+            RequestOptions options = new RequestOptions()
+                    .centerCrop()
+                    .placeholder(R.mipmap.aio_image_default)
+                    .error(R.mipmap.aio_image_fail)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(context)
+                    .load(Uri.fromFile(new File(localPath)))
+                    .apply(options)
                     .into(imageView);
         }else {
             Log.i(TAG, "Picture loading failed,fragment is null");

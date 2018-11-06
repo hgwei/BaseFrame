@@ -10,6 +10,7 @@ import com.hgw.baseframe.R;
 import com.hgw.baseframe.app.BaseFrameApp;
 import com.hgw.baseframe.base.BaseActivity;
 import com.hgw.baseframe.core.prefs.PreferenceHelper;
+import com.hgw.baseframe.ui.login.LoginActivity;
 import com.hgw.baseframe.util.DirUtil;
 import com.hgw.baseframe.util.LogHelper;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -84,23 +85,30 @@ public class StartActivity extends BaseActivity {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-    /**挑战首页*/
+    /**跳转登录*/
     public void toMain() {
-        MainActivity.toActivity(this);
+        LoginActivity.toActivity(this);
         finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-    /**获取权限
-     * @param view*/
+    /**
+     * 获取权限
+     * 注意：请求多少个权限，结果就会回调多少次，所以要加个布尔值，防止重复操作
+     * */
+    private boolean isFirstPermission=false;
     private void getPermission(View view) {
+        isFirstPermission=true;
         RxPermissions rxPermissions = new RxPermissions(this);
         rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe(permission -> {
 
-                    //不管权限是否允许都继续启动app
-                    start(view);
+                    if(isFirstPermission){
+                        //不管权限是否允许都继续启动app
+                        start(view);
+                        isFirstPermission=false;
+                    }
 
                     if (permission.granted) {
                         // 用户已经同意该权限（该方法每同意一个权限都会执行一次）

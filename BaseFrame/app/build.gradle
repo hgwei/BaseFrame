@@ -11,6 +11,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //Enabling multidex support.
         multiDexEnabled true
+
+        /**腾讯TBS服务兼容64位手机*/
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     buildTypes {
         release {
@@ -21,7 +26,11 @@ android {
 
     sourceSets{
         main{
-            jniLibs.srcDir 'libs'
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            assets.srcDirs = ['assets', 'src/main/assets', 'src/main/assets/']
+            jniLibs.srcDirs = ['libs']
         }
     }
 
@@ -39,28 +48,37 @@ android {
 }
 
 dependencies {
-
-    /**
-     * base 部分
-     */
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //design
+
+    /** design */
     implementation 'com.android.support:design:28.0.0-alpha3'
     implementation 'com.android.support:support-v4:28.0.0-alpha3'
+    /** multidex 解决方法数超过64k */
+    implementation 'com.android.support:multidex:1.0.1'
+    /** 动态权限申请rxpermissions */
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    /** rxjava、rxandroid */
+    //implementation 'io.reactivex.rxjava2:rxjava:2.x.x'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    /** 腾讯bugly */
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    /** okhttp    */
+    implementation 'com.squareup.okhttp3:okhttp:3.5.0'
+    implementation 'com.squareup.okio:okio:1.11.0'
+    /** okhttputils    */
+    implementation 'com.zhy:okhttputils:2.6.2'
+    /** gson */
+    implementation 'com.google.code.gson:gson:2.8.5'
+    /** fastjson */
+    implementation 'com.alibaba:fastjson:1.1.70.android'
 
-    /**
-     * ui 部分
-     */
 
-    /**
-     * net 部分
-     */
-    //retrofit相关
+    /** retrofit相关 */
     implementation "com.squareup.retrofit2:retrofit:2.4.0"
     implementation "com.squareup.retrofit2:converter-gson:2.4.0"
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
@@ -68,34 +86,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     //okhttp设置cookie
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
-    //glide
+    /** glide */
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
-
-    /**
-     * dao 部分
-     */
-
-    /**
-     * rx 部分
-     */
-    //compile 'io.reactivex.rxjava2:rxjava:2.x.x'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
-
-    /**
-     * di 部分
-     */
-
-    /**
-     * multidex 部分
-     */
-    //解决方法数超过64k
-    implementation 'com.android.support:multidex:1.0.1'
-
-    /**
-     * other 部分
-     */
-    //腾讯bugly
-    implementation 'com.tencent.bugly:crashreport:latest.release'
 }

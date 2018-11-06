@@ -3,6 +3,8 @@ package com.hgw.baseframe.app;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+
+import com.hgw.baseframe.constants.Constants;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**

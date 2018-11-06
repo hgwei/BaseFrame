@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- 顶部按钮图片按下bg，例如返回 -->
+    <item android:drawable="@color/back_press" android:state_focused="true"/>
+    <item android:drawable="@color/back_press" android:state_selected="true"/>
+    <item android:drawable="@color/back_press" android:state_pressed="true"/>
+    <item android:drawable="@android:color/transparent"/> 
+
+</selector>

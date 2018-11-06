@@ -5,6 +5,7 @@ import java.util.Map;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.hgw.baseframe.app.BaseFrameApp;
+import com.hgw.baseframe.constants.Constants;
 
 /**
  * 描述：SharedPreferences
@@ -12,7 +13,7 @@ import com.hgw.baseframe.app.BaseFrameApp;
  */
 public class SharedPreferencesUtil {
     private static SharedPreferencesUtil mSPHelper=null;
-    private final String PREFERENCE_NAME = "baseframe_shared_preferences";
+    private final String PREFERENCE_NAME = Constants.PREFERENCE_NAME;
     private final SharedPreferences mPreferences;
 
     /**

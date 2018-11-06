@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
 import android.widget.Toast;
+
+import com.hgw.baseframe.constants.Constants;
+
 import java.io.File;
 
 /**
@@ -13,7 +16,7 @@ import java.io.File;
  */
 public class DirUtil {
     /** 根目录 */
-    public static final String ROOT = Environment.getExternalStorageDirectory().getPath() + "/BaseFrame";
+    public static final String ROOT = Constants.FILEROOTPATH;
     /** 日志保存路径 */
     public static String PATH_LOG = ROOT + "/logfile/";
     /** 缓存目录 */

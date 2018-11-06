@@ -2,7 +2,8 @@ package com.hgw.baseframe.core.http;
 
 import com.hgw.baseframe.BuildConfig;
 import com.hgw.baseframe.app.BaseFrameApp;
-import com.hgw.baseframe.app.Constants;
+import com.hgw.baseframe.constants.Constants;
+import com.hgw.baseframe.constants.UrlConstants;
 import com.hgw.baseframe.util.DirUtil;
 import com.hgw.baseframe.util.MethodCommon;
 import java.io.File;
@@ -140,7 +141,7 @@ public class AppHttpClient {
             OkHttpClient okHttpClient = builder.build();
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl(Constants.SERVERURL)
+                    .baseUrl(UrlConstants.SERVERURL)
                     //设置 Json 转换器
                     .addConverterFactory(GsonConverterFactory.create())
                     //RxJava 适配器

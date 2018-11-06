@@ -13,6 +13,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.hgw.baseframe.view.LoadingProgressDialog;
@@ -27,7 +28,6 @@ public  class BaseFragmentActivity extends FragmentActivity {
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-		
 	}
 	
 	/**重写getResources()方法，让app页面字体不受系统设置字体大小影响*/
@@ -69,16 +69,16 @@ public  class BaseFragmentActivity extends FragmentActivity {
      * 展示软键盘
      */
     public void showKeyboard() {
-    	getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
-				| WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     /**
      * 隐藏软键盘
      */
     public void hideKeyboard() {
-    	getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
-				| WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
     
     /**

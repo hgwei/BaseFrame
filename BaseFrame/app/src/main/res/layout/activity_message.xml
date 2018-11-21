@@ -14,11 +14,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="首页"
+            android:text="功能模块"
             android:textColor="@color/white"
             android:textSize="16sp" />
     </RelativeLayout>
-
-
 
 </LinearLayout>

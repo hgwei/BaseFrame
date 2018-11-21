@@ -44,7 +44,12 @@
         <activity android:name="com.hgw.baseframe.ui.login.ForgetPasswordActivity"/>
         <!--首页-->
         <activity android:name="com.hgw.baseframe.ui.main.MainActivity"/>
-        <activity android:name="com.hgw.baseframe.ui.main.RetrofitActivity"/>
+        <!--http-->
+        <activity android:name="com.hgw.baseframe.ui.http.HttpActivity"/>
+        <!--okhttp-->
+        <activity android:name="com.hgw.baseframe.ui.http.okhttp.OkhttpActivity"/>
+        <!--Retrofit-->
+        <activity android:name="com.hgw.baseframe.ui.http.retrofit.RetrofitActivity"/>
         <activity android:name="com.hgw.baseframe.ui.main.GuideActivity"/>
     </application>
 

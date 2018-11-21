@@ -1,4 +1,4 @@
-package com.hgw.baseframe.core.http;
+package com.hgw.baseframe.ui.http.retrofit.core;
 
 /**
  * 描述：HttpHelper

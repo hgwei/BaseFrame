@@ -1,4 +1,4 @@
-package com.hgw.baseframe.core.http;
+package com.hgw.baseframe.ui.http.retrofit.core;
 
 import com.hgw.baseframe.bean.BannerData;
 import com.hgw.baseframe.bean.BaseResponse;

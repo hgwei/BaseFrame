@@ -4,27 +4,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_above="@+id/buttonLL"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation" />
-
-    <!--关闭点击水波纹效果app:itemBackground="@null"-->
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        app:itemBackground="@null"
-        app:itemIconTint="@drawable/bottom_navigation_selector"
-        app:itemTextColor="@drawable/bottom_navigation_selector"
-        app:menu="@menu/bottom_navigation_main" />
+        android:layout_height="match_parent">
+    </FrameLayout>
 
     <View
+        android:id="@+id/lineView"
+        android:layout_below="@+id/content"
+        android:layout_above="@+id/buttonLL"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_above="@id/bottom_navigation"
-        android:background="#ECF3F6" />
+        android:layout_height="0.5dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:id="@+id/buttonLL"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:id="@+id/tabLL1"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="tab1_click"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_main_tab1_sel" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="首页"
+                android:textSize="12sp"
+                android:textColor="#7E8894" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabLL2"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="tab2_click"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_main_tab2_nor" />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="基础模块"
+                android:textSize="12sp"
+                android:textColor="#7E8894" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabLL3"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="tab3_click"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_main_tab3_nor" />
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="功能模块"
+                android:textSize="12sp"
+                android:textColor="#7E8894" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabLL4"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:clickable="true"
+            android:onClick="tab4_click"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_main_tab4_nor" />
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:textSize="12sp"
+                android:textColor="#7E8894" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -10,21 +10,21 @@ import com.hgw.baseframe.base.BaseFragment;
 import com.hgw.baseframe.ui.http.HttpActivity;
 
 /**
- * 描述：首页
+ * 描述：项目 Fragment
  * @author hgw
  * */
-public final class HomeFragment extends BaseFragment implements View.OnClickListener {
+public final class ProjectFragment extends BaseFragment implements View.OnClickListener {
     
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.activity_home, container,false);
+		View view = inflater.inflate(R.layout.activity_project, container,false);
 		
 		initView(view);
 		return view;
 	}
 
 	private void initView(View view) {
-    	//view.findViewById(R.id.http).setOnClickListener(this);
+		view.findViewById(R.id.http).setOnClickListener(this);
 	}
 
 	@Override

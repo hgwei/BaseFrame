@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.main;
+package com.hgw.baseframe.ui.http.retrofit;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,21 +10,18 @@ import com.hgw.baseframe.base.BaseActivity;
 import com.hgw.baseframe.bean.BannerData;
 import com.hgw.baseframe.bean.BaseResponse;
 import com.hgw.baseframe.bean.LoginData;
-import com.hgw.baseframe.core.http.HttpHelper;
-import com.hgw.baseframe.core.http.rx.BaseObserver;
-import com.hgw.baseframe.core.http.rx.RxSchedulers;
+import com.hgw.baseframe.ui.http.okhttp.OkhttpActivity;
+import com.hgw.baseframe.ui.http.retrofit.core.HttpHelper;
+import com.hgw.baseframe.ui.http.retrofit.core.rx.BaseObserver;
+import com.hgw.baseframe.ui.http.retrofit.core.rx.RxSchedulers;
 import com.hgw.baseframe.util.LogHelper;
 import java.util.List;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.http.GET;
 
-public class RetrofitActivity extends BaseActivity {
+/**
+ * 描述：Retrofit
+ * @author hgw
+ * */
+public class RetrofitActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 入口
@@ -40,10 +37,15 @@ public class RetrofitActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
 
+        initView();
+    }
+
+    private void initView() {
+        findViewById(R.id.back).setOnClickListener(this);
     }
 
     /**Get请求示例*/
-    public void getBannerClick(View view){
+    public void getClick(View view){
         HttpHelper.getInstance().httpService().getBannerData()
                 .compose(RxSchedulers.compose())
                 .subscribe(new BaseObserver<List<BannerData>>(this){
@@ -63,7 +65,7 @@ public class RetrofitActivity extends BaseActivity {
 
 
     /**POST请求示例*/
-    public void postRegisterClick(View view){
+    public void postClick(View view){
         HttpHelper.getInstance().httpService().getRegisterData("1008623","123456","123456")
                 .compose(RxSchedulers.compose())
                 .subscribe(new BaseObserver<LoginData>(this){
@@ -113,6 +115,19 @@ public class RetrofitActivity extends BaseActivity {
 //                        LogHelper.showLog("注册请求返回="+result.toString());
 //                    }
 //                });
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()) {
+            case R.id.back:
+                /**返回*/
+                this.finish();
+                break;
+            default:
+                break;
+        }
     }
 
 }

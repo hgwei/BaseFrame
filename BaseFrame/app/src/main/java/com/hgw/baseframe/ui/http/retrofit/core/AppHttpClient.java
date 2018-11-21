@@ -1,4 +1,4 @@
-package com.hgw.baseframe.core.http;
+package com.hgw.baseframe.ui.http.retrofit.core;
 
 import com.hgw.baseframe.BuildConfig;
 import com.hgw.baseframe.app.BaseFrameApp;
@@ -25,10 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 描述：AppHttpClient（配置）
- *
  * @author hgw
  */
-
 public class AppHttpClient {
     public static Retrofit retrofit = null;
 
@@ -131,9 +129,9 @@ public class AppHttpClient {
              * 设置超时和重连
              */
             //设置超时
-            builder.connectTimeout(15, TimeUnit.SECONDS);
-            builder.readTimeout(20, TimeUnit.SECONDS);
-            builder.writeTimeout(20, TimeUnit.SECONDS);
+            builder.connectTimeout(30, TimeUnit.SECONDS);
+            builder.readTimeout(30, TimeUnit.SECONDS);
+            builder.writeTimeout(30, TimeUnit.SECONDS);
             //错误重连
             builder.retryOnConnectionFailure(true);
 

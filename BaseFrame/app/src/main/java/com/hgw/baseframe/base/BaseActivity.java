@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.hgw.baseframe.view.LoadingProgressDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 /**
  * 描述：AppCompatActivity基类
@@ -52,6 +53,8 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onDestroy(){
         super.onDestroy();
+        //Activity销毁时，取消网络请求
+        OkHttpUtils.getInstance().cancelTag(this);
     }
 
     /**显示progressDialog*/

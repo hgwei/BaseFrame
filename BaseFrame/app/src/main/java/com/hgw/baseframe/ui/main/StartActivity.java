@@ -103,17 +103,12 @@ public class StartActivity extends BaseActivity {
         rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe(permission -> {
-
-                    if(isFirstPermission){
-                        //不管权限是否允许都继续启动app
-                        start(view);
-                        isFirstPermission=false;
-                    }
-
                     if (permission.granted) {
                         // 用户已经同意该权限（该方法每同意一个权限都会执行一次）
-                        //初始化APP目录结构
-                        DirUtil.initDirs(this);
+                        if(isFirstPermission){
+                            //初始化APP目录结构
+                            DirUtil.initDirs(this);
+                        }
                         LogHelper.showLog(permission.name + " is granted.");
                     } else if (permission.shouldShowRequestPermissionRationale) {
                         // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
@@ -121,6 +116,12 @@ public class StartActivity extends BaseActivity {
                     } else {
                         // 用户拒绝了该权限，并且选中『不再询问』
                         LogHelper.showLog(permission.name + " is denied.");
+                    }
+
+                    if(isFirstPermission){
+                        //不管权限是否允许都继续启动app
+                        start(view);
+                        isFirstPermission=false;
                     }
                 });
     }

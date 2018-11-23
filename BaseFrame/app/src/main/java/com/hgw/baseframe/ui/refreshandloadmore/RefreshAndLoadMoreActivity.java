@@ -1,41 +1,43 @@
-package com.hgw.baseframe.ui.http;
+package com.hgw.baseframe.ui.refreshandloadmore;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseActivity;
 import com.hgw.baseframe.ui.http.okhttp.OkhttpActivity;
 import com.hgw.baseframe.ui.http.retrofit.RetrofitActivity;
+import com.hgw.baseframe.ui.refreshandloadmore.xrecyclerview.CustomXRecyclerViewActivity;
+import com.hgw.baseframe.view.customxrecyclerview.CustomXRecyclerView;
 
 /**
- * 描述：网络框架
+ * 描述：刷新、加载更多框架
  * @author hgw
  * */
-public class HttpActivity extends BaseActivity implements View.OnClickListener {
+public class RefreshAndLoadMoreActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 入口
      * @param context
      */
     public static void toActivity(Context context) {
-        Intent intent = new Intent(context, HttpActivity.class);
+        Intent intent = new Intent(context, RefreshAndLoadMoreActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_http);
+        setContentView(R.layout.activity_refreshandloadmore);
 
         initView();
     }
 
     private void initView() {
         findViewById(R.id.back).setOnClickListener(this);
-        findViewById(R.id.okhttp).setOnClickListener(this);
-        findViewById(R.id.retrofit).setOnClickListener(this);
+        findViewById(R.id.xRecyclerView).setOnClickListener(this);
     }
 
     @Override
@@ -46,13 +48,9 @@ public class HttpActivity extends BaseActivity implements View.OnClickListener {
                 /**返回*/
                 this.finish();
                 break;
-            case R.id.okhttp:
-                /**okhttp*/
-                OkhttpActivity.toActivity(this);
-                break;
-            case R.id.retrofit:
-                /**retrofit*/
-                RetrofitActivity.toActivity(this);
+            case R.id.xRecyclerView:
+                /**XRecyclerView*/
+                CustomXRecyclerViewActivity.toActivity(this);
                 break;
             default:
                 break;

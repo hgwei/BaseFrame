@@ -9,14 +9,14 @@ import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseFragment;
 
 /**
- * 描述：消息 Fragment
+ * 描述：功能模块 Fragment
  * @author hgw
  * */
-public final class MessageFragment extends BaseFragment{
+public final class FunctionModuleFragment extends BaseFragment{
     
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.activity_message, container,false);
+		View view = inflater.inflate(R.layout.activity_function_module, container,false);
 		
 		initView(view);
 		return view;

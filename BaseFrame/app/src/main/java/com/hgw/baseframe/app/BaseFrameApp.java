@@ -6,6 +6,12 @@ import android.support.multidex.MultiDex;
 
 import com.hgw.baseframe.constants.Constants;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.https.HttpsUtils;
+
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 
 /**
  * 描述：Application
@@ -20,12 +26,39 @@ public class BaseFrameApp extends Application {
 		super.onCreate();
 		instance = this;
 
+		//OkHttp初始化
+		initOkHttp();
 		//腾讯Bugly初始化
 		initBugly();
 	}
 
 	public static synchronized BaseFrameApp getInstance() {
 		return instance;
+	}
+
+	/**OkHttp初始化*/
+	private void initOkHttp() {
+		OkHttpClient.Builder builder = new OkHttpClient.Builder();
+		builder.connectTimeout(60000L, TimeUnit.MILLISECONDS); //毫秒
+		builder.readTimeout(60000L, TimeUnit.MILLISECONDS); //毫秒
+		builder.writeTimeout(60000L, TimeUnit.MILLISECONDS); //毫秒
+		builder.retryOnConnectionFailure(true); //错误重连
+
+		/*https配置，下面三种情况，选择一种*/
+//		/**情况一、设置可访问所有的https网站*/
+//		HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
+//		builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
+//
+//      	/**情况二、设置具体的证书*/
+//      	HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(证书的inputstream, null, null);
+//		builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
+//
+//      	/**情况三、双向认证*/
+//      	HttpsUtils.SSLParams sslParams =HttpsUtils.getSslSocketFactory(证书的inputstream, 本地证书的inputstream, 本地证书的密码);
+//		builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
+
+		OkHttpClient okHttpClient = builder.build();
+		OkHttpUtils.initClient(okHttpClient);
 	}
 
 	/**腾讯Bugly初始化*/

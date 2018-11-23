@@ -42,7 +42,7 @@ public class RequestGet {
                     public void onError(Call call, Exception e, int id) {
                         LogHelper.showLog("请求地址="+url);
                         LogHelper.showLog("请求异常结果="+e.getMessage());
-                        Toast.makeText(mContext,"请求异常", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(mContext,"请求异常", Toast.LENGTH_SHORT).show();
                         if(mRequestCallback!=null){
                             mRequestCallback.onError(e.getMessage());
                         }

@@ -24,10 +24,10 @@ public class MainActivity extends BaseFragmentActivity {
     private FragmentManager fManager;
     /**首页 Fragment*/
     private HomeFragment mHomeFragment;
-    /**项目 Fragment*/
-    private ProjectFragment mProjectFragment;
-    /**消息 Fragment*/
-    private MessageFragment mMessageFragment;
+    /**基础模块 Fragment*/
+    private BaseModuleFragment mBaseModuleFragment;
+    /**功能模块 Fragment*/
+    private FunctionModuleFragment mFunctionModuleFragment;
     /**我的 Fragment*/
     private PersonFragment mPersonFragment;
 
@@ -101,11 +101,11 @@ public class MainActivity extends BaseFragmentActivity {
 
         FragmentTransaction transaction = fManager.beginTransaction();
         hideFragments(transaction);
-        if (mProjectFragment == null) {
-            mProjectFragment = new ProjectFragment();
-            transaction.add(R.id.content, mProjectFragment);
+        if (mBaseModuleFragment == null) {
+            mBaseModuleFragment = new BaseModuleFragment();
+            transaction.add(R.id.content, mBaseModuleFragment);
         } else {
-            transaction.show(mProjectFragment);
+            transaction.show(mBaseModuleFragment);
         }
         transaction.commitAllowingStateLoss();
     }
@@ -123,11 +123,11 @@ public class MainActivity extends BaseFragmentActivity {
 
         FragmentTransaction transaction = fManager.beginTransaction();
         hideFragments(transaction);
-        if (mMessageFragment == null) {
-            mMessageFragment = new MessageFragment();
-            transaction.add(R.id.content, mMessageFragment);
+        if (mFunctionModuleFragment == null) {
+            mFunctionModuleFragment = new FunctionModuleFragment();
+            transaction.add(R.id.content, mFunctionModuleFragment);
         } else {
-            transaction.show(mMessageFragment);
+            transaction.show(mFunctionModuleFragment);
         }
         transaction.commitAllowingStateLoss();
     }
@@ -159,11 +159,11 @@ public class MainActivity extends BaseFragmentActivity {
         if (mHomeFragment != null) {
             transaction.hide(mHomeFragment);
         }
-        if (mProjectFragment != null) {
-            transaction.hide(mProjectFragment);
+        if (mBaseModuleFragment != null) {
+            transaction.hide(mBaseModuleFragment);
         }
-        if (mMessageFragment != null) {
-            transaction.hide(mMessageFragment);
+        if (mFunctionModuleFragment != null) {
+            transaction.hide(mFunctionModuleFragment);
         }
         if (mPersonFragment != null) {
             transaction.hide(mPersonFragment);

@@ -3,6 +3,7 @@ package com.hgw.baseframe.util;
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.hgw.baseframe.constants.Constants;
@@ -71,7 +72,7 @@ public class DirUtil {
      */
     public static boolean hasSDCard(Context context) {
         if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
-            Toast.makeText(context, "不存在SDCard，初始化目录失败", Toast.LENGTH_SHORT).show();
+            Log.e("Test","权限不允许或者SDCard不存在，初始化目录失败");
             return false;
         } else {
             return true;

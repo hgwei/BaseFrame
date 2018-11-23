@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.hgw.baseframe.view.LoadingProgressDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 /**
  * 描述：Fragment基类
@@ -24,6 +25,8 @@ public class BaseFragment extends Fragment {
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
+		//Activity销毁时，取消网络请求
+		OkHttpUtils.getInstance().cancelTag(this);
 	}
 	
 	/**显示短时间的Toast*/

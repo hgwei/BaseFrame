@@ -67,8 +67,8 @@ public class RequestData {
     }
 
     /**
-     * 登录
-     * @param username   用户名
+     * 登录 (Post Key Value 请求参数示例)
+     * @param username 用户名
      * @param password 密码
      * @return
      */
@@ -80,12 +80,21 @@ public class RequestData {
     }
 
     /**
-     * 获取主页菜单资源接口
+     * 登录 (Post String 请求参数示例)
+     * @param username 用户名
+     * @param password 密码
      * @return
      */
-    public static HashMap<String, String> getIndex() {
-        HashMap<String, String> params = getCommonHashMap();
-        return params;
+
+    public static String getLogin2(String username, String password) {
+        JSONObject mJSONObject = getCommonObject();
+        try {
+            mJSONObject.put("username", username);
+            mJSONObject.put("password", password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return mJSONObject.toString();
     }
 
 }

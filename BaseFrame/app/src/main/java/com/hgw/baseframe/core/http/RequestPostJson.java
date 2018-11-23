@@ -48,7 +48,7 @@ public class RequestPostJson {
                         LogHelper.showLog("请求地址="+url);
                         LogHelper.showLog("请求参数="+jsonString);
                         LogHelper.showLog("请求异常结果="+e.getMessage());
-                        Toast.makeText(mContext,"请求异常", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(mContext,"请求异常", Toast.LENGTH_SHORT).show();
                         if(mRequestCallback!=null){
                             mRequestCallback.onError(e.getMessage());
                         }

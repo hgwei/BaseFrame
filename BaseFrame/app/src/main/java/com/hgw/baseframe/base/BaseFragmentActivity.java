@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.hgw.baseframe.view.LoadingProgressDialog;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.lang.reflect.Field;
 
@@ -43,6 +44,8 @@ public  class BaseFragmentActivity extends FragmentActivity {
 	@Override
 	public void onDestroy(){
 		super.onDestroy();
+		//Activity销毁时，取消网络请求
+		OkHttpUtils.getInstance().cancelTag(this);
 	}
 	
 	/**显示短时间的Toast*/

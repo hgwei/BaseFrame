@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.http.okhttp;
+package com.hgw.baseframe.ui.basemodule.http.okhttp;
 
 import android.content.Context;
 import android.content.Intent;

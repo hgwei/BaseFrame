@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.hgw.baseframe.constants.RequestData;
 import com.hgw.baseframe.util.LogHelper;
+import com.hgw.baseframe.util.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.HashMap;
@@ -44,7 +45,7 @@ public class RequestPost {
                         LogHelper.showLog("请求地址="+url);
                         LogHelper.showLog("请求参数="+params);
                         LogHelper.showLog("请求异常结果="+e.getMessage());
-                        //Toast.makeText(mContext,"请求异常", Toast.LENGTH_SHORT).show();
+                        ToastUtil.showShortToast(mContext,"请求异常");
                         if(mRequestCallback!=null){
                             mRequestCallback.onError(e.getMessage());
                         }

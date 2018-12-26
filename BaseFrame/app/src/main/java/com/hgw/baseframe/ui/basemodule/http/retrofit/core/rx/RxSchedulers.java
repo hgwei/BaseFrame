@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.http.retrofit.core.rx;
+package com.hgw.baseframe.ui.basemodule.http.retrofit.core.rx;
 
 import android.widget.Toast;
 

@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.hgw.baseframe.constants.RequestData;
 import com.hgw.baseframe.util.LogHelper;
+import com.hgw.baseframe.util.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import okhttp3.Call;
@@ -42,7 +43,7 @@ public class RequestGet {
                     public void onError(Call call, Exception e, int id) {
                         LogHelper.showLog("请求地址="+url);
                         LogHelper.showLog("请求异常结果="+e.getMessage());
-                        //Toast.makeText(mContext,"请求异常", Toast.LENGTH_SHORT).show();
+                        ToastUtil.showShortToast(mContext,"请求异常");
                         if(mRequestCallback!=null){
                             mRequestCallback.onError(e.getMessage());
                         }

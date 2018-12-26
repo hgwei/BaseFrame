@@ -1,10 +1,9 @@
-package com.hgw.baseframe.ui.refreshandloadmore.xrecyclerview;
+package com.hgw.baseframe.ui.basemodule.refreshandloadmore.xrecyclerview;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,7 @@ import android.view.ViewGroup;
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.adapter.refreshandloadmore.XRecyclerviewAdapter;
 import com.hgw.baseframe.base.BaseActivity;
-import com.hgw.baseframe.ui.http.HttpActivity;
+import com.hgw.baseframe.ui.basemodule.http.HttpActivity;
 import com.hgw.baseframe.view.customxrecyclerview.CustomXRecyclerView;
 
 import java.util.ArrayList;

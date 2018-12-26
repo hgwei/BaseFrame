@@ -42,15 +42,7 @@ public class LoadingProgressDialog extends Dialog {
         dialog = new LoadingProgressDialog(context, R.style.LoadingProgressDialog);//dialog样式
         dialog.setContentView(R.layout.layout_load_progress_dialog);//dialog布局文件
         dialog.setCanceledOnTouchOutside(false);//点击外部不允许关闭dialog
-        dialog.setOnKeyListener(new OnKeyListener() {
-            @Override
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_BACK){
-                    return true;
-                }
-                return false;
-            }
-        });
+        dialog.setCancelable(true);
 
         //提示文本，默认为（加载中...）
         TextView mMessage=(TextView) dialog.findViewById(R.id.textView);

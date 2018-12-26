@@ -1,4 +1,4 @@
-package com.hgw.baseframe.ui.http.retrofit;
+package com.hgw.baseframe.ui.basemodule.http.retrofit;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,9 @@ import com.hgw.baseframe.base.BaseActivity;
 import com.hgw.baseframe.bean.BannerData;
 import com.hgw.baseframe.bean.BaseResponse;
 import com.hgw.baseframe.bean.LoginData;
-import com.hgw.baseframe.ui.http.okhttp.OkhttpActivity;
-import com.hgw.baseframe.ui.http.retrofit.core.HttpHelper;
-import com.hgw.baseframe.ui.http.retrofit.core.rx.BaseObserver;
-import com.hgw.baseframe.ui.http.retrofit.core.rx.RxSchedulers;
+import com.hgw.baseframe.ui.basemodule.http.retrofit.core.HttpHelper;
+import com.hgw.baseframe.ui.basemodule.http.retrofit.core.rx.BaseObserver;
+import com.hgw.baseframe.ui.basemodule.http.retrofit.core.rx.RxSchedulers;
 import com.hgw.baseframe.util.LogHelper;
 import java.util.List;
 

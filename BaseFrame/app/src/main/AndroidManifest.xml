@@ -45,15 +45,15 @@
         <!--首页-->
         <activity android:name="com.hgw.baseframe.ui.main.MainActivity"/>
         <!--网络框架-->
-        <activity android:name="com.hgw.baseframe.ui.http.HttpActivity"/>
+        <activity android:name=".ui.basemodule.http.HttpActivity"/>
         <!--okhttp-->
-        <activity android:name="com.hgw.baseframe.ui.http.okhttp.OkhttpActivity"/>
+        <activity android:name=".ui.basemodule.http.okhttp.OkhttpActivity"/>
         <!--Retrofit-->
-        <activity android:name="com.hgw.baseframe.ui.http.retrofit.RetrofitActivity"/>
+        <activity android:name=".ui.basemodule.http.retrofit.RetrofitActivity"/>
         <!--刷新、加载更多框架-->
-        <activity android:name="com.hgw.baseframe.ui.refreshandloadmore.RefreshAndLoadMoreActivity"/>
+        <activity android:name=".ui.basemodule.refreshandloadmore.RefreshAndLoadMoreActivity"/>
         <!--自定义XRecyclerView-->
-        <activity android:name="com.hgw.baseframe.ui.refreshandloadmore.xrecyclerview.CustomXRecyclerViewActivity"/>
+        <activity android:name=".ui.basemodule.refreshandloadmore.xrecyclerview.CustomXRecyclerViewActivity"/>
 
         <activity android:name="com.hgw.baseframe.ui.main.GuideActivity"/>
     </application>

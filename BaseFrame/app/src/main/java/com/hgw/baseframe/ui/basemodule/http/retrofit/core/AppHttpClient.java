@@ -1,8 +1,7 @@
-package com.hgw.baseframe.ui.http.retrofit.core;
+package com.hgw.baseframe.ui.basemodule.http.retrofit.core;
 
 import com.hgw.baseframe.BuildConfig;
 import com.hgw.baseframe.app.BaseFrameApp;
-import com.hgw.baseframe.constants.Constants;
 import com.hgw.baseframe.constants.UrlConstants;
 import com.hgw.baseframe.util.DirUtil;
 import com.hgw.baseframe.util.MethodCommon;

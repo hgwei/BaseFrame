@@ -96,9 +96,8 @@ public class StartActivity extends BaseActivity {
      * 获取权限
      * 注意：请求多少个权限，结果就会回调多少次，所以要加个布尔值，防止重复操作
      * */
-    private boolean isFirstPermission=false;
+    private boolean isFirstPermission=true;
     private void getPermission(View view) {
-        isFirstPermission=true;
         RxPermissions rxPermissions = new RxPermissions(this);
         rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)

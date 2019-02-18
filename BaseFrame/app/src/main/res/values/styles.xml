@@ -46,4 +46,21 @@
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
 
+    <!-- Dialog框，从屏幕中间弹出和消失的动画效果  -->
+    <style name="Animation_Dialog_center_enter_exit">
+        <item name="android:windowEnterAnimation">@anim/dialog_center_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_center_exit</item>
+    </style>
+    <!--  Dialog框，从屏幕底部弹出和消失的动画效果 -->
+    <style name="Animation_Dialog_buttom_in_out">
+        <item name="android:windowEnterAnimation">@anim/dialog_buttom_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_buttom_out</item>
+    </style>
+
+    <!-- popupwindow进入退出动画 -->
+    <style name="Animation_popdropdown" mce_bogus="1" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/popup_top_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_top_exit</item>
+    </style>
+
 </resources>

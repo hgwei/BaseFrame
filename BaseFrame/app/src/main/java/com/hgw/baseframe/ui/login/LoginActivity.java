@@ -24,6 +24,7 @@ import com.hgw.baseframe.util.NetWorkUtils;
 import com.hgw.baseframe.view.CommonDialog;
 import com.hgw.baseframe.view.EditTextPasswordCheck;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 描述：登录
@@ -148,7 +149,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
      * */
     private void toLogin(String account, String password) {
         showProgressDialog(null);
-        HashMap<String, String> params= RequestData.getLogin(account,password);
+       Map<String, String> params= RequestData.getLogin(account,password);
         new RequestPost(this, UrlConstants.URL_USERLOGIN,params)
                 .setRequestCallback(new RequestPost.RequestCallback() {
                     @Override

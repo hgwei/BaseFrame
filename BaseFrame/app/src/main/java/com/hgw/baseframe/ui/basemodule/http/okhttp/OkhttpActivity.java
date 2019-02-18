@@ -96,7 +96,7 @@ public class OkhttpActivity extends BaseActivity implements View.OnClickListener
     /**POST请求示例*/
     public void postClick(View view){
         showProgressDialog(null);
-        HashMap<String, String> params= RequestData.getLogin("1008611","123456");
+        Map<String, String> params= RequestData.getLogin("1008611","123456");
         new RequestPost(this, UrlConstants.URL_USERLOGIN,params)
                 .setRequestCallback(new RequestPost.RequestCallback() {
                     @Override

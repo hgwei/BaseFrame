@@ -5,6 +5,8 @@ import com.hgw.baseframe.bean.LoginEntry;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 描述：请求数据封装
@@ -17,9 +19,9 @@ public class RequestData {
      *
      * @return
      */
-    public static HashMap<String, String> getHeaders() {
+    public static Map<String, String> getHeaders() {
         //header不支持中文，不允许有特殊字符
-        HashMap<String, String> headers = new HashMap<>();
+        Map<String, String> headers = new LinkedHashMap<>();
         headers.put("Content-Type", "application/json;charset=UTF-8");
 //        long timeMillis = System.currentTimeMillis();//时间戳
 ////        headers.put("timestamp", timeMillis + "");//当前请求时间戳
@@ -48,8 +50,8 @@ public class RequestData {
      * Common：公共请求对象（用于post key value请求）
      * @return HashMap<String, String>
      */
-    public static HashMap<String, String> getCommonHashMap() {
-        HashMap<String, String> params = new HashMap<>();
+    public static Map<String, String> getCommonHashMap() {
+        Map<String, String> params = new LinkedHashMap<>();
         if(LoginEntry.Instance().getToken()!=null)
             params.put("token", LoginEntry.Instance().getToken());
         return params;
@@ -61,8 +63,8 @@ public class RequestData {
      * 获取系统时间
      * @return
      */
-    public static HashMap<String, String> postGetSystemTime() {
-        HashMap<String, String> params = getCommonHashMap();
+    public static Map<String, String> postGetSystemTime() {
+        Map<String, String> params = getCommonHashMap();
         return params;
     }
 
@@ -72,8 +74,8 @@ public class RequestData {
      * @param password 密码
      * @return
      */
-    public static HashMap<String, String> getLogin(String username, String password) {
-        HashMap<String, String> params = getCommonHashMap();
+    public static Map<String, String> getLogin(String username, String password) {
+        Map<String, String> params = getCommonHashMap();
         params.put("username", username);
         params.put("password", password);
         return params;

@@ -8,6 +8,8 @@ import com.hgw.baseframe.util.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.HashMap;
+import java.util.Map;
+
 import okhttp3.Call;
 
 /**
@@ -20,7 +22,7 @@ public class RequestPost {
     /**Post请求触发接口*/
     private RequestCallback mRequestCallback;
 
-    public RequestPost(Context mContext, String url, HashMap<String,String> params){
+    public RequestPost(Context mContext, String url, Map<String,String> params){
         this.mContext=mContext;
         post(url,params);
     }
@@ -33,7 +35,7 @@ public class RequestPost {
      * @param url 地址
      * @param params 参数
      * */
-    public void post(String url, HashMap<String,String> params){
+    public void post(String url, Map<String,String> params){
         OkHttpUtils.post()
                 .url(url)
                 .headers(RequestData.getHeaders())

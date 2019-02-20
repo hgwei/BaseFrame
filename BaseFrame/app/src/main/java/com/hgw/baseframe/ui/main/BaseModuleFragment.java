@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseFragment;
+import com.hgw.baseframe.ui.basemodule.appupdate.AppUpdateActivity;
 import com.hgw.baseframe.ui.basemodule.http.HttpActivity;
 import com.hgw.baseframe.ui.basemodule.refreshandloadmore.RefreshAndLoadMoreActivity;
 
@@ -27,6 +28,8 @@ public final class BaseModuleFragment extends BaseFragment implements View.OnCli
 	private void initView(View view) {
 		view.findViewById(R.id.http).setOnClickListener(this);
 		view.findViewById(R.id.refreshAndLoadmore).setOnClickListener(this);
+		view.findViewById(R.id.appUpdate).setOnClickListener(this);
+
 	}
 
 	@Override
@@ -40,6 +43,10 @@ public final class BaseModuleFragment extends BaseFragment implements View.OnCli
 			case R.id.refreshAndLoadmore:
 				/**刷新和加载更多框架*/
 				RefreshAndLoadMoreActivity.toActivity(getActivity());
+				break;
+			case R.id.appUpdate:
+				/**APP版本检测更新*/
+				AppUpdateActivity.toActivity(getActivity());
 				break;
 			default:
 				break;

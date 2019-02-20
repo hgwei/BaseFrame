@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--允许okhttp对http的访问（Android P后限制了http访问，必须使用https）-->
+<!--AndroidManifest.xml中application标签中加入android:networkSecurityConfig="@xml/network_security_config"-->
 <network-security-config>
     <base-config cleartextTrafficPermitted="true" />
 </network-security-config>

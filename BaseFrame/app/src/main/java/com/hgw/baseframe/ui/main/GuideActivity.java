@@ -9,6 +9,8 @@ import android.view.View;
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseActivity;
 import com.hgw.baseframe.adapter.GuideAdapter;
+import com.hgw.baseframe.ui.login.LoginActivity;
+
 import java.util.ArrayList;
 
 /**
@@ -79,9 +81,9 @@ public class GuideActivity extends BaseActivity {
         viewPager.setAdapter(vpAdapter);
     }
 
-    /**挑战首页*/
+    /**跳转登录页面*/
     public void toMain() {
-        MainActivity.toActivity(this);
+        LoginActivity.toActivity(this);
         finish();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }

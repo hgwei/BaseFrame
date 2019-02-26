@@ -17,6 +17,21 @@
     <!-- 允许安装apk权限 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
+    <!--云知声SDK所需权限 start-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--云知声SDK所需权限 end-->
+
     <application
         android:name="com.hgw.baseframe.app.BaseFrameApp"
         android:allowBackup="true"
@@ -73,8 +88,18 @@
         <activity android:name=".ui.basemodule.refreshandloadmore.xrecyclerview.CustomXRecyclerViewActivity"/>
         <!--APP版本检测更新-->
         <activity android:name="com.hgw.baseframe.ui.basemodule.appupdate.AppUpdateActivity"/>
+        <!--APP异常日志捕获、重启应用-->
+        <activity android:name="com.hgw.baseframe.ui.basemodule.crash.CrashActivity"/>
+        <!--离线语音合成-->
+        <activity android:name="com.hgw.baseframe.ui.functionmodule.tts.TTSActivity"/>
 
         <activity android:name="com.hgw.baseframe.ui.main.GuideActivity"/>
+
+        <!--APP异常提示Dialog -->
+        <activity
+            android:name="com.hgw.baseframe.core.crash.PatchDialogActivity"
+            android:theme="@style/Theme.Patch.Dialog"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

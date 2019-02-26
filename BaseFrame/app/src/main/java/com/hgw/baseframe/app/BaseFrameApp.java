@@ -5,9 +5,10 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.hgw.baseframe.constants.Constants;
+import com.hgw.baseframe.core.crash.AppUncaughtExceptionHandler;
+import com.hgw.baseframe.ui.functionmodule.tts.TTSUtils;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.https.HttpsUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +31,8 @@ public class BaseFrameApp extends Application {
 		initOkHttp();
 		//腾讯Bugly初始化
 		initBugly();
+		//APP异常捕获
+		initCrash();
 	}
 
 	public static synchronized BaseFrameApp getInstance() {
@@ -64,6 +67,12 @@ public class BaseFrameApp extends Application {
 	/**腾讯Bugly初始化*/
 	private void initBugly() {
 		CrashReport.initCrashReport(getApplicationContext(), Constants.BuglyAPPID, false);
+	}
+
+	/** 捕捉异常*/
+	private void initCrash() {
+		AppUncaughtExceptionHandler crashHandler = AppUncaughtExceptionHandler.getInstance();
+		crashHandler.init(getApplicationContext());
 	}
 
 	/**解决方法数超过64k*/

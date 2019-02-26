@@ -19,4 +19,18 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/fileOnlineOpen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="文件在线预览"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/TTSOnline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="语音离线合成"
+        android:textAllCaps="false" />
+
 </LinearLayout>

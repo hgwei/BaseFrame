@@ -89,24 +89,28 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.login:
                 /**登录*/
-                final String account = maccount.getText().toString().trim();
-                final String password = mpassword.getText().toString().trim();
-                if (TextUtils.isEmpty(account)) {
-                    showShortToast("请输入账号");
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    showShortToast("请输入密码");
-                    return;
-                }
+                //跳转首页
+                MainActivity.toActivity(LoginActivity.this);
+                LoginActivity.this.finish();
 
-                //检查是否有网络
-                if(!NetWorkUtils.isNetworkConnected(this)){
-                    showNotNetWordTipsDialog();
-                    return;
-                }
-                //登录
-                toLogin(account,password);
+//                final String account = maccount.getText().toString().trim();
+//                final String password = mpassword.getText().toString().trim();
+//                if (TextUtils.isEmpty(account)) {
+//                    showShortToast("请输入账号");
+//                    return;
+//                }
+//                if (TextUtils.isEmpty(password)) {
+//                    showShortToast("请输入密码");
+//                    return;
+//                }
+//
+//                //检查是否有网络
+//                if(!NetWorkUtils.isNetworkConnected(this)){
+//                    showNotNetWordTipsDialog();
+//                    return;
+//                }
+//                //登录
+//                toLogin(account,password);
                 break;
             case R.id.passwordSeeImage:
                 /**密码是否可见*/

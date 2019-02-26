@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseFragment;
 import com.hgw.baseframe.ui.basemodule.appupdate.AppUpdateActivity;
+import com.hgw.baseframe.ui.basemodule.crash.CrashActivity;
 import com.hgw.baseframe.ui.basemodule.http.HttpActivity;
 import com.hgw.baseframe.ui.basemodule.refreshandloadmore.RefreshAndLoadMoreActivity;
 
@@ -29,6 +30,7 @@ public final class BaseModuleFragment extends BaseFragment implements View.OnCli
 		view.findViewById(R.id.http).setOnClickListener(this);
 		view.findViewById(R.id.refreshAndLoadmore).setOnClickListener(this);
 		view.findViewById(R.id.appUpdate).setOnClickListener(this);
+		view.findViewById(R.id.crash).setOnClickListener(this);
 
 	}
 
@@ -47,6 +49,10 @@ public final class BaseModuleFragment extends BaseFragment implements View.OnCli
 			case R.id.appUpdate:
 				/**APP版本检测更新*/
 				AppUpdateActivity.toActivity(getActivity());
+				break;
+			case R.id.crash:
+				/**APP异常日志捕获、重启应用*/
+				CrashActivity.toActivity(getActivity());
 				break;
 			default:
 				break;

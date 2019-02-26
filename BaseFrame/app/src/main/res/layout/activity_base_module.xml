@@ -40,4 +40,11 @@
         android:text="APP版本检测更新"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/crash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="APP异常日志捕获、重启应用"
+        android:textAllCaps="false" />
+
 </LinearLayout>

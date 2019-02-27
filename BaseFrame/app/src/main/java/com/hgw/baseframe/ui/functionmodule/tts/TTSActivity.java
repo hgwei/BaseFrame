@@ -24,6 +24,10 @@ import java.io.File;
 /**
  * 描述：离线语音合成（云知声）
  * @author hgw
+ *
+ * libs目录下：libuscasr.so、libyzstts.so、usc.jar
+ * assets目录下：backend_lzl、frontend_model
+ * AndroidManifest.xml权限
  * */
 public class TTSActivity extends BaseActivity implements View.OnClickListener {
     private EditText minput;

@@ -12,7 +12,7 @@ android {
         //Enabling multidex support.
         multiDexEnabled true
 
-        /**腾讯TBS服务兼容64位手机*/
+        /**兼容64位手机*/
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }

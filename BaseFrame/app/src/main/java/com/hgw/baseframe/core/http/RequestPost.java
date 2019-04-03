@@ -47,7 +47,7 @@ public class RequestPost {
                         LogHelper.showLog("请求地址="+url);
                         LogHelper.showLog("请求参数="+params);
                         LogHelper.showLog("请求异常结果="+e.getMessage());
-                        ToastUtil.showShortToast(mContext,"请求异常");
+                        ToastUtil.showShortToast(mContext,"请求异常，请稍后重试");
                         if(mRequestCallback!=null){
                             mRequestCallback.onError(e.getMessage());
                         }

@@ -42,9 +42,9 @@ public class BaseFrameApp extends Application {
 	/**OkHttp初始化*/
 	private void initOkHttp() {
 		OkHttpClient.Builder builder = new OkHttpClient.Builder();
-		builder.connectTimeout(60000L, TimeUnit.MILLISECONDS); //毫秒
-		builder.readTimeout(60000L, TimeUnit.MILLISECONDS); //毫秒
-		builder.writeTimeout(60000L, TimeUnit.MILLISECONDS); //毫秒
+		builder.connectTimeout(30000L, TimeUnit.MILLISECONDS); //毫秒
+		builder.readTimeout(30000L, TimeUnit.MILLISECONDS); //毫秒
+		builder.writeTimeout(30000L, TimeUnit.MILLISECONDS); //毫秒
 		builder.retryOnConnectionFailure(true); //错误重连
 
 		/*https配置，下面三种情况，选择一种*/

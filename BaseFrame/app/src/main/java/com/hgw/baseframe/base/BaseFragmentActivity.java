@@ -51,11 +51,27 @@ public  class BaseFragmentActivity extends FragmentActivity {
 	/**显示短时间的Toast*/
 	public void showShortToast(String text) {
 		Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+
+		//更改Toast字体大小和显示位置
+//        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+//        LinearLayout linearLayout = (LinearLayout) toast.getView();
+//        TextView messageTextView = (TextView) linearLayout.getChildAt(0);
+//        messageTextView.setTextSize(58);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+//        toast.show();
 	}
 
 	/**显示长时间的Toast*/
 	public void showLongToast(String text) {
 		Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+
+		//更改Toast字体大小和显示位置
+//        Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+//        LinearLayout linearLayout = (LinearLayout) toast.getView();
+//        TextView messageTextView = (TextView) linearLayout.getChildAt(0);
+//        messageTextView.setTextSize(58);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+//        toast.show();
 	}
 
 	/**显示progressDialog*/

@@ -6,10 +6,13 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.hgw.baseframe.view.LoadingProgressDialog;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -42,11 +45,27 @@ public class BaseActivity extends AppCompatActivity {
     /**显示短时间的Toast*/
     public void showShortToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+
+        //更改Toast字体大小和显示位置
+//        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+//        LinearLayout linearLayout = (LinearLayout) toast.getView();
+//        TextView messageTextView = (TextView) linearLayout.getChildAt(0);
+//        messageTextView.setTextSize(58);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+//        toast.show();
     }
 
     /**显示长时间的Toast*/
     public void showLongToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+
+        //更改Toast字体大小和显示位置
+//        Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+//        LinearLayout linearLayout = (LinearLayout) toast.getView();
+//        TextView messageTextView = (TextView) linearLayout.getChildAt(0);
+//        messageTextView.setTextSize(58);
+//        toast.setGravity(Gravity.CENTER, 0, 0);
+//        toast.show();
     }
 
     /**重写onDestroy方法*/

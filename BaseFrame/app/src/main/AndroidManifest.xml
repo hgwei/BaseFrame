@@ -46,7 +46,7 @@
             android:value="2.1"/>
 
         <!--APP更新服务 start -->
-        <service android:enabled="true" android:name="com.hgw.baseframe.ui.basemodule.appupdate.AppUpdateService"/>
+        <service android:enabled="true" android:name=".ui.appupdate.AppUpdateService"/>
         <!--解决 Android N(7.0) 上 安装Apk时报错-->
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -59,11 +59,22 @@
         </provider>
         <!--APP更新服务 end -->
 
-        <activity android:name=".ui.main.StartActivity">
+        <activity android:name=".ui.login.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--配置Scheme协议，允许本APP被H5或者其它APP调起-->
+            <intent-filter>
+                <data
+                    android:scheme="scheme"
+                    android:host="com.hgw.baseframe"
+                    android:path="/toSchemeActivity" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
 
@@ -77,23 +88,25 @@
         <!--首页-->
         <activity android:name="com.hgw.baseframe.ui.main.MainActivity"/>
         <!--网络框架-->
-        <activity android:name=".ui.basemodule.http.HttpActivity"/>
+        <activity android:name=".ui.http.HttpActivity"/>
         <!--okhttp-->
-        <activity android:name=".ui.basemodule.http.okhttp.OkhttpActivity"/>
+        <activity android:name=".ui.http.okhttp.OkhttpActivity"/>
         <!--Retrofit-->
-        <activity android:name=".ui.basemodule.http.retrofit.RetrofitActivity"/>
+        <activity android:name=".ui.http.retrofit.RetrofitActivity"/>
         <!--刷新、加载更多框架-->
-        <activity android:name=".ui.basemodule.refreshandloadmore.RefreshAndLoadMoreActivity"/>
+        <activity android:name=".ui.refreshandloadmore.RefreshAndLoadMoreActivity"/>
         <!--自定义XRecyclerView-->
-        <activity android:name=".ui.basemodule.refreshandloadmore.xrecyclerview.CustomXRecyclerViewActivity"/>
+        <activity android:name=".ui.refreshandloadmore.xrecyclerview.CustomXRecyclerViewActivity"/>
         <!--APP版本检测更新-->
-        <activity android:name="com.hgw.baseframe.ui.basemodule.appupdate.AppUpdateActivity"/>
+        <activity android:name=".ui.appupdate.AppUpdateActivity"/>
         <!--APP异常日志捕获、重启应用-->
-        <activity android:name="com.hgw.baseframe.ui.basemodule.crash.CrashActivity"/>
+        <activity android:name=".ui.crash.CrashActivity"/>
         <!--离线语音合成-->
-        <activity android:name="com.hgw.baseframe.ui.functionmodule.tts.TTSActivity"/>
+        <activity android:name=".ui.tts.TTSActivity"/>
+        <!--Scheme使用（H5或其它APP调起本APP）-->
+        <activity android:name="com.hgw.baseframe.ui.scheme.SchemeActivity"/>
 
-        <activity android:name="com.hgw.baseframe.ui.main.GuideActivity"/>
+        <activity android:name="com.hgw.baseframe.ui.login.GuideActivity"/>
 
         <!--APP异常提示Dialog -->
         <activity

@@ -47,4 +47,11 @@
         android:text="APP异常日志捕获、重启应用"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/scheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scheme使用（H5或其它APP调起本APP）"
+        android:textAllCaps="false" />
+
 </LinearLayout>

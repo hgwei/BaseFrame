@@ -89,28 +89,24 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.login:
                 /**登录*/
-                //跳转首页
-                MainActivity.toActivity(LoginActivity.this);
-                LoginActivity.this.finish();
+                final String account = maccount.getText().toString().trim();
+                final String password = mpassword.getText().toString().trim();
+                if (TextUtils.isEmpty(account)) {
+                    showShortToast("请输入账号");
+                    return;
+                }
+                if (TextUtils.isEmpty(password)) {
+                    showShortToast("请输入密码");
+                    return;
+                }
 
-//                final String account = maccount.getText().toString().trim();
-//                final String password = mpassword.getText().toString().trim();
-//                if (TextUtils.isEmpty(account)) {
-//                    showShortToast("请输入账号");
-//                    return;
-//                }
-//                if (TextUtils.isEmpty(password)) {
-//                    showShortToast("请输入密码");
-//                    return;
-//                }
-//
-//                //检查是否有网络
-//                if(!NetWorkUtils.isNetworkConnected(this)){
-//                    showNotNetWordTipsDialog();
-//                    return;
-//                }
-//                //登录
-//                toLogin(account,password);
+                //检查是否有网络
+                if(!NetWorkUtils.isNetworkConnected(this)){
+                    showNotNetWordTipsDialog();
+                    return;
+                }
+                //登录
+                toLogin(account,password);
                 break;
             case R.id.passwordSeeImage:
                 /**密码是否可见*/
@@ -152,29 +148,33 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
      * @param password
      * */
     private void toLogin(String account, String password) {
-        showProgressDialog(null);
-       Map<String, String> params= RequestData.getLogin(account,password);
-        new RequestPost(this, UrlConstants.URL_USERLOGIN,params)
-                .setRequestCallback(new RequestPost.RequestCallback() {
-                    @Override
-                    public void onSuccess(String response) {
-                        hideProgressDialog();
-                        LoginBean mResult = JSONUtil.parseToJavaBean(response, LoginBean.class);
-                        if (mResult.getErrorCode()== ResultCode.RESULT_OK){
-                            //保存用户信息
-                            saveUserInfo(mResult.getData(),account,password);
-                            //跳转首页
-                            MainActivity.toActivity(LoginActivity.this);
-                            LoginActivity.this.finish();
-                        }else{
-                            showShortToast(mResult.getErrorMsg());
-                        }
-                    }
-                    @Override
-                    public void onError(String response) {
-                        hideProgressDialog();
-                    }
-                });
+        //跳转首页
+        MainActivity.toActivity(LoginActivity.this);
+        LoginActivity.this.finish();
+
+//           showProgressDialog(null);
+//           Map<String, String> params= RequestData.getLogin(account,password);
+//            new RequestPost(this, UrlConstants.URL_USERLOGIN,params)
+//                    .setRequestCallback(new RequestPost.RequestCallback() {
+//                        @Override
+//                        public void onSuccess(String response) {
+//                            hideProgressDialog();
+//                            LoginBean mResult = JSONUtil.parseToJavaBean(response, LoginBean.class);
+//                            if (mResult.getErrorCode()== ResultCode.RESULT_OK){
+//                                //保存用户信息
+//                                saveUserInfo(mResult.getData(),account,password);
+//                                //跳转首页
+//                                MainActivity.toActivity(LoginActivity.this);
+//                                LoginActivity.this.finish();
+//                            }else{
+//                                showShortToast(mResult.getErrorMsg());
+//                            }
+//                        }
+//                        @Override
+//                        public void onError(String response) {
+//                            hideProgressDialog();
+//                        }
+//                    });
     }
 
     /**保存用户信息*/

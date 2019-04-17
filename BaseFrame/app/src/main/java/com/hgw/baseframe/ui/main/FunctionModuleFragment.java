@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseFragment;
-import com.hgw.baseframe.ui.functionmodule.fileopen.FileOpenActivity;
-import com.hgw.baseframe.ui.functionmodule.tts.TTSActivity;
+import com.hgw.baseframe.ui.fileopen.FileOpenActivity;
+import com.hgw.baseframe.ui.tts.TTSActivity;
 
 /**
  * 描述：功能模块 Fragment

@@ -6,7 +6,6 @@ import android.support.multidex.MultiDex;
 
 import com.hgw.baseframe.constants.Constants;
 import com.hgw.baseframe.core.crash.AppUncaughtExceptionHandler;
-import com.hgw.baseframe.ui.functionmodule.tts.TTSUtils;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.zhy.http.okhttp.OkHttpUtils;
 

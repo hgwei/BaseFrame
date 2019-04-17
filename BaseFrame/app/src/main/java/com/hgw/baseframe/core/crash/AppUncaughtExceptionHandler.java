@@ -11,6 +11,7 @@ import android.util.Log;
 
 import com.hgw.baseframe.app.BaseFrameApp;
 import com.hgw.baseframe.util.DirUtil;
+import com.hgw.baseframe.util.TimeUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -198,11 +199,10 @@ public class AppUncaughtExceptionHandler implements UncaughtExceptionHandler {
 	 */
 	private void saveExceptionToSdcard(String errorReason) {
 		try {
-			Log.e("CrashDemo", "AppUncaughtExceptionHandler执行了一次");
 			String time = mFormatter.format(new Date());
 			String fileName = "Crash-" + time + ".log";
 			if (DirUtil.hasSDCard(BaseFrameApp.getInstance())) {
-				String path = DirUtil.PATH_LOG;
+				String path = DirUtil.PATH_LOG+ TimeUtil.getStringDate("yyyy-MM-dd"+"/");
 				File dir = new File(path);
 				if (!dir.exists()) {
 					dir.mkdirs();
@@ -212,7 +212,7 @@ public class AppUncaughtExceptionHandler implements UncaughtExceptionHandler {
 				fos.close();
 			}
 		} catch (Exception e) {
-			Log.e("CrashDemo", "an error occured while writing file..." + e.getMessage());
+			Log.e("Test", "an error occured while writing file..." + e.getMessage());
 		}
 	}
 

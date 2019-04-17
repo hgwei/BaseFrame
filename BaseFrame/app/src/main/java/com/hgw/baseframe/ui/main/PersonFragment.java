@@ -1,41 +1,15 @@
 package com.hgw.baseframe.ui.main;
 
-import android.Manifest;
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.FileProvider;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.hgw.baseframe.BuildConfig;
 import com.hgw.baseframe.R;
-import com.hgw.baseframe.app.BaseFrameApp;
 import com.hgw.baseframe.base.BaseFragment;
 import com.hgw.baseframe.bean.LoginEntry;
-import com.hgw.baseframe.service.FileDownLoadService;
 import com.hgw.baseframe.ui.login.LoginActivity;
-import com.hgw.baseframe.util.DirUtil;
-import com.hgw.baseframe.util.LogHelper;
-import com.hgw.baseframe.util.MethodCommon;
-import com.hgw.baseframe.util.OpenFileUtil;
 import com.hgw.baseframe.view.CommonDialog;
-import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import java.io.File;
 
 /**
  * 描述：个人中心 Fragment

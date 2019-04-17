@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseFragment;
-import com.hgw.baseframe.ui.basemodule.http.HttpActivity;
+import com.hgw.baseframe.ui.http.HttpActivity;
 
 /**
  * 描述：首页

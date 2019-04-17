@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.hgw.baseframe.R;
 import com.hgw.baseframe.base.BaseFragment;
-import com.hgw.baseframe.ui.basemodule.appupdate.AppUpdateActivity;
-import com.hgw.baseframe.ui.basemodule.crash.CrashActivity;
-import com.hgw.baseframe.ui.basemodule.http.HttpActivity;
-import com.hgw.baseframe.ui.basemodule.refreshandloadmore.RefreshAndLoadMoreActivity;
+import com.hgw.baseframe.ui.appupdate.AppUpdateActivity;
+import com.hgw.baseframe.ui.crash.CrashActivity;
+import com.hgw.baseframe.ui.scheme.SchemeActivity;
+import com.hgw.baseframe.ui.http.HttpActivity;
+import com.hgw.baseframe.ui.refreshandloadmore.RefreshAndLoadMoreActivity;
 
 /**
  * 描述：基础模块 Fragment
@@ -31,7 +32,7 @@ public final class BaseModuleFragment extends BaseFragment implements View.OnCli
 		view.findViewById(R.id.refreshAndLoadmore).setOnClickListener(this);
 		view.findViewById(R.id.appUpdate).setOnClickListener(this);
 		view.findViewById(R.id.crash).setOnClickListener(this);
-
+		view.findViewById(R.id.scheme).setOnClickListener(this);
 	}
 
 	@Override
@@ -53,6 +54,10 @@ public final class BaseModuleFragment extends BaseFragment implements View.OnCli
 			case R.id.crash:
 				/**APP异常日志捕获、重启应用*/
 				CrashActivity.toActivity(getActivity());
+				break;
+			case R.id.scheme:
+				/**Scheme使用（H5或其它APP调起本APP）*/
+				SchemeActivity.toActivity(getActivity());
 				break;
 			default:
 				break;
